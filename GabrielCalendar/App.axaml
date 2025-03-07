@@ -1,0 +1,59 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="GabrielCalendar.App"
+             RequestedThemeVariant="Light">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme />
+	<Style Selector="Window">
+	<Setter Property="Foreground" Value="Black"/>
+	<Setter Property="Background" Value="White"/>
+	</Style>
+	<Style Selector="Button">
+		<Setter Property="Background" Value="Green"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="ToggleButton">
+		<Setter Property="Background" Value="Green"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="ToggleButton:checked">
+		<Setter Property="Background" Value="Green"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="TextBox">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="MaskedTextBox">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="CalendarDatePicker">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="ComboBox">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="ListBox">
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="Background" Value="LightGray"/>
+	</Style>
+	<Style Selector="Calendar">
+		<Setter Property="Background" Value="LightGreen"/>
+	</Style>
+	<Style Selector="Calendar /template/ CalendarItem Button">
+		<Setter Property="Background" Value="LightGreen"/>
+	</Style>
+    </Application.Styles>
+</Application>

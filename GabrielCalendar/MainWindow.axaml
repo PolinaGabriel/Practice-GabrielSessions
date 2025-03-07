@@ -1,0 +1,166 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="800"
+		MaxWidth="1000" MaxHeight="800"
+		MinWidth="1000" MinHeight="800"
+        x:Class="GabrielCalendar.MainWindow"
+        Title="Организационная структура">
+	<Grid
+		RowDefinitions="* 6* *"
+		ColumnDefinitions="* *">
+		<Border
+			Grid.Row="0"
+			Grid.Column="0"
+			Grid.ColumnSpan="2"
+			Background="LightGreen">
+			<Border
+				Width="750"
+				Height="50"
+				CornerRadius="15"
+				Background="White"
+				Padding="20 17 0 0">
+				<TextBlock
+					Text="Организационная структура">
+				</TextBlock>
+			</Border>
+		</Border>
+		<Border
+			Grid.Row="0"
+			Grid.Column="0"
+			Width="80"
+			HorizontalAlignment="Left"
+			CornerRadius="100"
+			Margin="20 10 10 10"
+			Background="Green">
+			<TextBlock
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				FontWeight="Bold"
+				Text="логотип">
+			</TextBlock>
+		</Border>
+		<Border
+			Grid.Row="1"
+			Grid.Column="0"
+			Margin="30 30 15 30"
+			Background="LightGray">
+			<WrapPanel
+				Orientation="Vertical">
+				<ComboBox
+					Name="firstBox"
+					SelectionChanged="FirstSelect"
+					Margin="20"
+					Width="415">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								Text="{Binding FirstLevelBranchName}">
+							</TextBlock>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<ComboBox
+					Name="secondBox"
+					SelectionChanged="SecondSelect"
+					Margin="20 0"
+					Width="415">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								Text="{Binding SecondLevelBranchName}">
+							</TextBlock>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<ComboBox
+					Name="thirdBox"
+					SelectionChanged="ThirdSelect"
+					Margin="20"
+					Width="415">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								Text="{Binding ThirdLevelBranchName}">
+							</TextBlock>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+			</WrapPanel>
+		</Border>
+		<Border
+			Grid.Row="1"
+			Grid.Column="1"
+			Margin="15 30 30 30"
+			Background="LightGray">
+			<ListBox
+				Name="employeeList"
+				Height="500"
+				Background="LightGray">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border
+							CornerRadius="0"
+							Margin="0 0 10 0"
+							DoubleTapped="Edit"
+							Background="{Binding Color}"
+							Tag="{Binding EmployeeId}">
+							<WrapPanel
+								Margin="10"
+								Orientation="Vertical"
+								Width="{Binding $parent}">
+								<WrapPanel
+									Margin="0">
+									<TextBlock
+										Text="{Binding FirstBranch}">
+									</TextBlock>
+									<TextBlock
+										Text="{Binding SecondBranch}">
+									</TextBlock>
+									<TextBlock
+										Text="{Binding ThirdBranch}">
+									</TextBlock>
+								</WrapPanel>
+								<TextBlock
+									Margin="0 10"
+									Text="{Binding SecondLine}">
+								</TextBlock>
+								<TextBlock
+									Margin="0"
+									Text="{Binding ThirdLine}">
+								</TextBlock>
+								<TextBlock
+									Margin="0 10 0 0"
+									Text="{Binding FourthLine}">
+								</TextBlock>
+							</WrapPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Border>
+		<Button
+			Click="GoToEvents"
+			Grid.Row="2"
+			Grid.Column="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Bottom"
+			Margin="30 0 30 40"
+			FontSize="25"
+			Padding="10"
+			Content="События">
+		</Button>
+		<Button
+			Click="Add"
+			Grid.Row="2"
+			Grid.Column="1"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			Margin="30 0 30 40"
+			FontSize="25"
+			Padding="20 10"
+			Content="+">
+		</Button>
+	</Grid>
+</Window>
