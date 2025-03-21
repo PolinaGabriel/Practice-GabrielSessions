@@ -13,6 +13,6 @@ namespace GabrielCalendar
         public string description { get; set; }
         public string imagePath { get; set; }
         public string link { get; set; }
-        public string date { get; set; }
+        public DateTime date { get; set; }
     }
 }
