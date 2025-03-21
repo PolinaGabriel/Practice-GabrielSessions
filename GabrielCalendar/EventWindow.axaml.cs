@@ -158,15 +158,15 @@ public partial class EventWindow : Window
         var baseDirectory = AppContext.BaseDirectory;
         var jsonPath = Path.Combine(baseDirectory, "News", "news.JSON");
         var json = File.ReadAllText(jsonPath);
-        news = JsonConvert.DeserializeObject<List<News>>(json);
+        news = JsonConvert.DeserializeObject<List<News>>(json).Where(x => x.date == datePicker.SelectedDate.Value.Date).ToList();
+        news = NewsSearch(news);
         newstList.ItemsSource = news.Select(x => new
         {
             x.id,
             x.title,
             x.description,
-            //image = Helper.LoadFromWeb(new Uri(x.imagePath)),
             x.link,
-            x.date
+            Date = Convert.ToString(x.date).Substring(1, 10)
         });
     }
 
@@ -221,17 +221,17 @@ public partial class EventWindow : Window
     /// </summary>
     /// <param name="news"></param>
     /// <returns></returns>
-    public List<Event> NewsSearch(List<Event> news)
+    public List<News> NewsSearch(List<News> news)
     {
-        List<Event> search = new List<Event>();
+        List<News> search = new List<News>();
         string[] words = searchBox.Text.Split(' ');
-        foreach (Event eve in news)
+        foreach (News n in news)
         {
             foreach (string word in words)
             {
-                if (eve.EventName.ToLower().Contains(word.ToLower()) == true)
+                if (n.title.ToLower().Contains(word.ToLower()) == true || n.description.ToLower().Contains(word.ToLower()) == true)
                 {
-                    search.Add(eve);
+                    search.Add(n);
                     break;
                 }
             }
